@@ -21,8 +21,8 @@ return new class extends Migration
             $table->rememberToken();
 
 
-//            $table->foreignId('billing_id')->nullable()->constrained('locations')->index();
-//            $table->foreignId('shipping_id')->nullable()->constrained('locations')->index();
+            $table->foreignId('billing_id')->nullable()->index();
+            $table->foreignId('shipping_id')->nullable()->index();
 
             $table->timestamps();
         });
