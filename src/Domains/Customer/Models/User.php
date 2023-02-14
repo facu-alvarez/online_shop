@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace Domains\Customer\Models;
 
-use Database\Factories\UserFactory;
-use Domains\Shared\Models\Concerns\HasUuid;
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Domains\Shared\Models\Concerns\HasUuid;
 use Illuminate\Notifications\Notifiable;
+use Database\Factories\UserFactory;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -26,6 +27,8 @@ class User extends Authenticatable
         'last_name',
         'email',
         'password',
+        'billing_id',
+        'shipping_id',
     ];
 
     protected $hidden = [
@@ -33,13 +36,18 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    public function addresses(): HasMany
+    public function billing(): BelongsTo
     {
-        return $this->hasMany(Address::class, 'user_id');
+        return $this->belongsTo(Address::class, 'billing_id');
+    }
+
+    public function shipping(): BelongsTo
+    {
+        return $this->belongsTo(Address::class, 'shipping_id');
     }
 
     protected static function newFactory(): Factory
     {
-        return new UserFactory();
+        return UserFactory::new();
     }
 }
