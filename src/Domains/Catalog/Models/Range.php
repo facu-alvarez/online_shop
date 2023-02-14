@@ -22,6 +22,8 @@ class Range extends Model
         'active'
     ];
 
+    protected $casts = ['active' => 'boolean'];
+
     protected function products(): HasMany
     {
         return $this->hasMany(Product::class, 'range_id');
