@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
-use Domains\Catalog\Models\Range;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Domains\Catalog\Models\Range;
 
 class RangeFactory extends Factory
 {
