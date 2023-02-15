@@ -15,17 +15,17 @@ class ProductFactory extends Factory
 
     public function definition(): array
     {
-        $cost = fake()->numberBetween(100, 100000);
+        $cost = $this->faker->numberBetween(100, 100000);
 
         return [
-            'name' => fake()->words(2, true),
-            'description' => fake()->paragraphs(2, true),
+            'name' => $this->faker->words(2, true),
+            'description' => $this->faker->paragraphs(2, true),
             'cost' => $cost,
             'retail' => ($cost * config('shop.profit_margin')),
-            'active' => fake()->boolean,
+            'active' => $this->faker->boolean,
             'vat' => config('shop.vat'),
             'category_id' => Category::factory()->create(),
-            'range_id' => fake()->boolean ? Range::factory()->create() : null
+            'range_id' => $this->faker->boolean ? Range::factory()->create() : null
         ];
     }
 }

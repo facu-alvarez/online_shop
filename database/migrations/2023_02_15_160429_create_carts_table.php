@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('status'); //Pending,Chequed-out, Abandoned
             $table->string('coupon')->nullable();
 
-            $table->bigInteger('total')->unique();
-            $table->bigInteger('discount')->nullable();
+            $table->bigInteger('total')->default(0);
+            $table->bigInteger('discount')->default(0);
 
             $table->foreignId('user_id')->index()->nullable()->constrained()->nullOnDelete();
 

@@ -23,7 +23,7 @@ class AddressFactory extends Factory
                 'Home',
                 'Moms house',
             ]),
-            'billing' => fake()->boolean,
+            'billing' => $this->faker->boolean,
             'user_id' => User::factory()->create(),
             'location_id' => Location::factory()->create(),
         ];

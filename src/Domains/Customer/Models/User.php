@@ -42,6 +42,11 @@ class User extends Authenticatable
         return $this->hasOne(Cart::class, 'user_id');
     }
 
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class, 'user_id');
+    }
+
     public function billing(): BelongsTo
     {
         return $this->belongsTo(Address::class, 'billing_id');

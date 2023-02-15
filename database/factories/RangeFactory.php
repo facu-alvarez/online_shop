@@ -14,8 +14,8 @@ class RangeFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->words(3, true),
-            'description'=> fake()->paragraphs(4,true),
+            'name' => $this->faker->words(3, true),
+            'description'=> $this->faker->paragraphs(4,true),
             'active'=> true
         ];
     }

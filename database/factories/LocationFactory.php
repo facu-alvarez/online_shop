@@ -19,7 +19,7 @@ class LocationFactory extends Factory
 
         $location = $service->getRandomPostcode();
 
-        $streetAddress = $street = fake()->streetAddress();
+        $streetAddress = $street = $this->faker->streetAddress();
 
         return [
             'house' => Str::of($streetAddress)->before(' '),

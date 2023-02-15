@@ -16,24 +16,24 @@ class VariantFactory extends Factory
     {
         $product = Product::factory()->create();
 
-        $cost = fake()->boolean
+        $cost = $this->faker->boolean
             ? $product->cost
-            : $product->cost + fake()->numberBetween(100,7500);
+            : $product->cost + $this->faker->numberBetween(100,7500);
         $retail = ($product->cost === $cost)
             ? $product->retail
-            : $product->retail + fake()->numberBetween(100,7500);
+            : $product->retail + $this->faker->numberBetween(100,7500);
 
-        $shippable = fake()->boolean;
+        $shippable = $this->faker->boolean;
 
         return [
-            'name' => fake()->words(3, true),
+            'name' => $this->faker->words(3, true),
             'cost' => $cost,
             'retail' => $retail,
-            'height' => $shippable ? fake()->numberBetween(100, 1000): null,
-            'width' => $shippable ? fake()->numberBetween(100, 1000): null,
-            'length' => $shippable ? fake()->numberBetween(100, 1000): null,
-            'weight' => $shippable ? fake()->numberBetween(100, 1000): null,
-            'active' => fake()->boolean,
+            'height' => $shippable ? $this->faker->numberBetween(100, 1000): null,
+            'width' => $shippable ? $this->faker->numberBetween(100, 1000): null,
+            'length' => $shippable ? $this->faker->numberBetween(100, 1000): null,
+            'weight' => $shippable ? $this->faker->numberBetween(100, 1000): null,
+            'active' => $this->faker->boolean,
             'shippable' => $shippable,
             'product_id' => $product->id,
         ];
