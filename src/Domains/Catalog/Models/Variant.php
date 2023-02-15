@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Domains\Catalog\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use JustSteveKing\KeyFactory\Models\Concerns\HasKey;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
@@ -33,6 +34,11 @@ class Variant extends Model
         'shippable' => 'boolean'
     ];
 
+
+    public function product(): BelongsTo
+    {
+        return $this->belongsTo(Product::class, 'product_id');
+    }
 
     protected static function newFactory(): Factory
     {

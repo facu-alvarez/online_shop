@@ -6,6 +6,7 @@ namespace Domains\Catalog\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use JustSteveKing\KeyFactory\Models\Concerns\HasKey;
 use Domains\Catalog\Models\Builders\ProductBuilder;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -29,7 +30,10 @@ class Product extends Model
         'range_id',
     ];
 
-    protected $casts = ['active' => 'boolean'];
+    protected $casts = [
+        'active' => 'boolean',
+        'vat' => 'boolean'
+    ];
 
     public function category(): BelongsTo
     {
@@ -39,6 +43,11 @@ class Product extends Model
     public function range(): BelongsTo
     {
         return $this->belongsTo(Range::class, 'range_id');
+    }
+
+    public function variants(): HasMany
+    {
+        return $this->hasMany(Variant::class, 'product_id');
     }
 
     public function newEloquentBuilder($query): ProductBuilder

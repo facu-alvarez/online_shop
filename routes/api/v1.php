@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\V1\Products\IndexController;
+use App\Http\Controllers\Api\V1\Products\ShowController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,5 +27,7 @@ Route::prefix('products')->as('products:')->group(function (){
     /**
      * Show all products
      */
-   Route::get('/', IndexController::class)->name('show');
+   Route::get('/', IndexController::class)->name('index');
+
+   Route::get('{key}', ShowController::class)->name('show');
 });
