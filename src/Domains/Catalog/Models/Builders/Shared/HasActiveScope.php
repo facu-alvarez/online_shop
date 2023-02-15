@@ -1,10 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 
 namespace Domains\Catalog\Models\Builders\Shared;
-
-
-use Illuminate\Database\Eloquent\Builder;
 
 trait HasActiveScope
 {
