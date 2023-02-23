@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Domains\Customer\Models\Coupon;
 use Domains\Customer\Models\OrderLine;
 use Domains\Customer\Models\Address;
 use Domains\Catalog\Models\Variant;
@@ -18,5 +19,6 @@ class DatabaseSeeder extends Seeder
         Cart::factory(10)->create();
         OrderLine::factory(20)->create();
         Order::factory(20)->create();
+        Coupon::factory(15)->create();
     }
 }
