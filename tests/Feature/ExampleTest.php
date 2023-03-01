@@ -8,7 +8,7 @@ use JustSteveKing\StatusCode\Http;
 use function Pest\Laravel\get;
 
 
-it('asdasdas', function () {
+it('It receives HTTP OK on the home page', function () {
     get(
         route('home'),
     )->assertStatus(
