@@ -12,7 +12,12 @@ return new class extends Migration
     {
         Schema::create('cart_items', function (Blueprint $table) {
             $table->id();
+            $table->string('key')->unique();
+
+            $table->unsignedInteger('quantity')->default(0);
+
             $table->morphs('purchasable');
+
             $table->foreignId('cart_id')->index()->nullable()->constrained()->nullOnDelete();
             $table->timestamps();
         });
