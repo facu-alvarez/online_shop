@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
-use Domains\Customer\Models\States\Statuses\OrderStatus;
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Domains\Customer\Models\Location;
 use Domains\Customer\Models\Order;
 use Domains\Customer\Models\User;
+use Domains\Customer\States\Statuses\OrderStatus;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Arr;
 
 class OrderFactory extends Factory

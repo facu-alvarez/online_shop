@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Domains\Customer\Models\States\Statuses;
+namespace Domains\Customer\States\Statuses;
 
 use Spatie\Enum\Laravel\Enum;
 
