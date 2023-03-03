@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\V1\Carts\Products\StoreController as ProductCartStoreController;
+use App\Http\Controllers\Api\V1\Carts\Products\StoreController as CartProductStoreController;
 use App\Http\Controllers\Api\V1\Products\ShowController;
 use App\Http\Controllers\Api\V1\Carts\IndexController;
 use App\Http\Controllers\Api\V1\Carts\StoreController;
@@ -41,7 +41,7 @@ Route::prefix('carts')->as('carts:')->group(function () {
     /*
      * Add product to cart
      */
-    Route::post('{cart:uuid}/products', ProductCartStoreController::class)->name('products:store');
+    Route::post('{cart:uuid}/products', CartProductStoreController::class)->name('products:store');
 //
 //    /*
 //     * Update quantity
