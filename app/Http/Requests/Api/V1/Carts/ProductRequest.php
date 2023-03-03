@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace {{ namespace }};
+namespace App\Http\Requests\Api\V1\Carts;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class {{ class }} extends FormRequest
+class ProductRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -16,7 +16,11 @@ class {{ class }} extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'quantity' => [
+                'required',
+                'int',
+                'gt:0',
+            ]
         ];
     }
 }

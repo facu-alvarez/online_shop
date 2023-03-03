@@ -11,9 +11,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
+use JustSteveKing\KeyFactory\Models\Concerns\HasKey;
 
 class CartItem extends Model
 {
+    use HasKey;
     use HasFactory;
 
     protected $fillable = [

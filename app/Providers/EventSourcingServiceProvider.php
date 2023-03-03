@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use Spatie\EventSourcing\Facades\Projectionist;
 use Domains\Customer\Projectors\CartProjector;
 use Illuminate\Support\ServiceProvider;
-use Spatie\EventSourcing\Projectionist;
 
 class EventSourcingServiceProvider extends ServiceProvider
 {

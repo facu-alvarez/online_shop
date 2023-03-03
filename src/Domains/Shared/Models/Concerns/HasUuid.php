@@ -9,7 +9,13 @@ use Illuminate\Support\Str;
 
 trait HasUuid
 {
-    public static function bootHasUuId (): void {
+    public static function bootHasUuId(): void
+    {
         static::creating(fn(Model $model) => $model->uuid = Str::uuid()->toString());
+    }
+
+    public function getRouteKeyName(): string
+    {
+        return 'uuid';
     }
 }

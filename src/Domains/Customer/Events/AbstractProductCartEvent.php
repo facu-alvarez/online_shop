@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Domains\Customer\Events;
 
-class AbstractProductCartEvent extends \Spatie\EventSourcing\StoredEvents\ShouldBeStored
+use Spatie\EventSourcing\StoredEvents\ShouldBeStored;
+
+class AbstractProductCartEvent extends ShouldBeStored
 {
     public function __construct(
         public int $purchasableID,
