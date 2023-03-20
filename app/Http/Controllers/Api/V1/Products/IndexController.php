@@ -15,14 +15,14 @@ class IndexController extends Controller
 {
     public function __invoke(Request $request): JsonResponse
     {
-        $productos =
+        $products =
             QueryBuilder::for(Product::class)
                 ->allowedIncludes(['category', 'range', 'variants'])
                 ->allowedFilters(['active', 'vat'])
                 ->paginate();
 
         return response()->json(
-            ProductResource::collection($productos),
+            ProductResource::collection($products),
             200
         );
     }

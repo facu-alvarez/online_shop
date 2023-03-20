@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api\V1\Carts\Products;
 
+use App\Http\Resources\Api\V1\CartItemResource;
 use Domains\Customer\Factories\CartItemFactory;
 use Domains\Customer\Aggregates\CartAggregate;
 use Domains\Customer\Actions\AddProductToCart;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\JsonResponse;
 use JustSteveKing\StatusCode\Http;
 use Domains\Customer\Models\Cart;
 use Illuminate\Http\Response;

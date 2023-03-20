@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Api\V1\Carts\Products\StoreController as CartProductStoreController;
 use App\Http\Controllers\Api\V1\Products\ShowController;
 use App\Http\Controllers\Api\V1\Carts\IndexController;
 use App\Http\Controllers\Api\V1\Carts\StoreController;
@@ -20,28 +19,30 @@ Route::prefix('products')->as('products:')->group(function () {
      */
 //    Route::get('/', IndexController::class)->name('index');
 
-    Route::get('{key}', ShowController::class)->name('show');
+    Route::get('{key}', App\Http\Controllers\Api\V1\Products\ShowController::class)->name('show');
 });
 
 /*
  *  Cart Routes
  */
-
 Route::prefix('carts')->as('carts:')->group(function () {
     /*
      * Get the users cart
      */
-    Route::get('/', IndexController::class)->name('index');
+    Route::get('/', App\Http\Controllers\Api\V1\Carts\IndexController::class)->name('index');
 
     /*
      * Create a new Cart
      */
-    Route::post('/', StoreController::class)->name('store');
+    Route::post('/', App\Http\Controllers\Api\V1\Carts\StoreController::class)->name('store');
 
     /*
      * Add product to cart
      */
-    Route::post('{cart:uuid}/products', CartProductStoreController::class)->name('products:store');
+    Route::post(
+        '{cart:uuid}/products',
+        App\Http\Controllers\Api\V1\Carts\Products\StoreController::class
+    )->name('products:store');
 //
 //    /*
 //     * Update quantity

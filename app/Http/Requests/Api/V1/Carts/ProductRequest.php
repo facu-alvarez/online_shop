@@ -10,7 +10,7 @@ class ProductRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     public function rules(): array
@@ -20,6 +20,15 @@ class ProductRequest extends FormRequest
                 'required',
                 'int',
                 'gt:0',
+            ],
+            'purchasable_id' => [
+                'required',
+                'int'
+            ],
+            'purchasable_type' => [
+                'required',
+                'string',
+                'in:variant,bundle',
             ]
         ];
     }

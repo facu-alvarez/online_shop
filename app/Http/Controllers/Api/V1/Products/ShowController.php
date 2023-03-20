@@ -7,12 +7,13 @@ namespace App\Http\Controllers\Api\V1\Products;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Api\V1\ProductResource;
 use Domains\Catalog\Models\Product;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Spatie\QueryBuilder\QueryBuilder;
 
 class ShowController extends Controller
 {
-    public function __invoke(Request $request, string $key)
+    public function __invoke(Request $request, string $key): JsonResponse
     {
         $product = QueryBuilder::for(Product::class)
             ->allowedIncludes(['category', 'range', 'variants'])
